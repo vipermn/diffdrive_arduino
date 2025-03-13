@@ -3,6 +3,7 @@
 
 #include <serial/serial.h>
 #include <cstring>
+#include <rclcpp/rclcpp.hpp>
 
 class ArduinoComms
 {
@@ -11,10 +12,11 @@ class ArduinoComms
 public:
 
   ArduinoComms()
+  : logger_(rclcpp::get_logger("ArduinoComms"))
   {  }
 
   ArduinoComms(const std::string &serial_device, int32_t baud_rate, int32_t timeout_ms)
-      : serial_conn_(serial_device, baud_rate, serial::Timeout::simpleTimeout(timeout_ms))
+      : serial_conn_(serial_device, baud_rate, serial::Timeout::simpleTimeout(timeout_ms)), logger_(rclcpp::get_logger("ArduinoComms"))
   {  }
 
   void setup(const std::string &serial_device, int32_t baud_rate, int32_t timeout_ms);
@@ -30,6 +32,9 @@ public:
 
 private:
   serial::Serial serial_conn_;  ///< Underlying serial connection 
+
+    rclcpp::Logger logger_;
+
 };
 
 #endif // DIFFDRIVE_ARDUINO_ARDUINO_COMMS_H

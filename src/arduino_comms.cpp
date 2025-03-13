@@ -56,8 +56,8 @@ std::string ArduinoComms::sendMsg(const std::string &msg_to_send, bool print_out
 
     if (print_output)
     {
-        // RCLCPP_INFO_STREAM(logger_,"Sent: " << msg_to_send);
-        // RCLCPP_INFO_STREAM(logger_,"Received: " << response);
+        RCLCPP_INFO_STREAM(logger_,"Sent: " << msg_to_send);
+        RCLCPP_INFO_STREAM(logger_,"Received: " << response);
     }
 
     return response;
