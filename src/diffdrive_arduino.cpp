@@ -134,7 +134,7 @@ return_type DiffDriveArduino::write(const rclcpp::Time & /* time */, const rclcp
 
   arduino_.setMotorValues(l_wheel_.cmd / l_wheel_.rads_per_count / cfg_.loop_rate, r_wheel_.cmd / r_wheel_.rads_per_count / cfg_.loop_rate);
 
-  RCLCPP_INFO(logger_, "data: %f", l_wheel_.cmd);
+  RCLCPP_INFO(logger_, "Motor Values: %f %f", l_wheel_.cmd, r_wheel_.cmd);
 
 
   return return_type::OK;
