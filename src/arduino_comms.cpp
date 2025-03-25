@@ -46,7 +46,7 @@ void ArduinoComms::setPidValues(float k_p, float k_d, float k_i, float k_o)
 {
     std::stringstream ss;
     ss << "u " << k_p << ":" << k_d << ":" << k_i << ":" << k_o << "\r";
-    sendMsg(ss.str(), true);
+    sendMsg(ss.str(), false);
 }
 
 std::string ArduinoComms::sendMsg(const std::string &msg_to_send, bool print_output)
@@ -57,7 +57,7 @@ std::string ArduinoComms::sendMsg(const std::string &msg_to_send, bool print_out
     if (print_output)
     {
         RCLCPP_INFO_STREAM(logger_,"Sent: " << msg_to_send);
-        RCLCPP_INFO_STREAM(logger_,"Received: " << response);
+        // RCLCPP_INFO_STREAM(logger_,"Received: " << response);
     }
 
     return response;

@@ -26,7 +26,7 @@ def generate_launch_description():
 
     # Get URDF via xacro
     robot_description_path = os.path.join(
-        get_package_share_directory('articubot_one'),
+        get_package_share_directory('robby_beta'),
         'description',
         'robot.urdf.xacro')
     robot_description_config = xacro.process_file(robot_description_path)
